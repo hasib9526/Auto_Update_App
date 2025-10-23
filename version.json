@@ -1,7 +1,7 @@
 {
-  "version": "1.0.5",
-  "buildNumber": 6,
+  "version": "1.0.6",
+  "buildNumber": 7,
   "apkUrl": "https://github.com/hasib9526/Auto_Update_App/releases/download/v1.0.6/app-release.apk",
-  "releaseNotes": "Factory App V5 - Bug fixes and improvements"
+  "releaseNotes": "Factory App V6 - Faster download speed and optimizations"
 }
 
