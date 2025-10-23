@@ -6,11 +6,9 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:path_provider/path_provider.dart';
 
 class UpdateService {
-  // আপনার server URL এখানে দিবেন যেখানে version.json file থাকবে
-  // TODO: version.json file Google Drive এ upload করে তার direct link এখানে দিন
-  // Format: https://drive.google.com/uc?export=download&id=YOUR_FILE_ID
-  // Google Drive direct download link for version.json
-  static const String versionCheckUrl = 'https://drive.google.com/uc?export=download&id=1oxQFchysFeEO2v8NndD9F0pr1wh6dHEv';
+  // GitHub raw URL for version.json file
+  // This file contains information about the latest app version
+  static const String versionCheckUrl = 'https://raw.githubusercontent.com/hasib9526/Auto_Update_App/main/version.json';
   
 
   final Dio _dio = Dio();
