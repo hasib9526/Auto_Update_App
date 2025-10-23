@@ -1,0 +1,6 @@
+{
+  "version": "1.0.1",
+  "buildNumber": 2,
+  "apkUrl": "https://github.com/YOUR_USERNAME/factory-app-updates/releases/download/v1.0.1/app-release.apk",
+  "releaseNotes": "Factory App V2 - Initial release with auto-update feature"
+}
