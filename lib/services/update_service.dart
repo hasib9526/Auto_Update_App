@@ -9,9 +9,16 @@ class UpdateService {
   // GitHub raw URL for version.json file
   // This file contains information about the latest app version
   static const String versionCheckUrl = 'https://raw.githubusercontent.com/hasib9526/Auto_Update_App/main/version.json';
-  
 
-  final Dio _dio = Dio();
+
+  final Dio _dio = Dio(
+    BaseOptions(
+      connectTimeout: const Duration(seconds: 30),
+      receiveTimeout: const Duration(minutes: 5),
+      sendTimeout: const Duration(seconds: 30),
+      receiveDataWhenStatusError: true,
+    ),
+  );
 
   /// Check করে নতুন update আছে কিনা
   Future<UpdateInfo?> checkForUpdate() async {
@@ -112,11 +119,19 @@ class UpdateService {
         print('✅ Old APK deleted');
       }
 
-      // নতুন APK download করা
+      // নতুন APK download করা with optimized settings
       print('⬇️ Starting download...');
       await _dio.download(
         url,
         filePath,
+        options: Options(
+          headers: {
+            'Accept': '*/*',
+            'Connection': 'keep-alive',
+          },
+          receiveTimeout: const Duration(minutes: 10), // Longer timeout for large files
+        ),
+        deleteOnError: true, // Delete partial file on error
         onReceiveProgress: (received, total) {
           if (total != -1 && onProgress != null) {
             onProgress(received, total);
